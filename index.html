@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Empowering immigrant parents with resources, guidance, and community support to help their families thrive.">
+  <title>Immigrant Parent Ally</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #1e293b, #e37b1e);
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Header */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background: rgba(20, 20, 20, 0.95);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      border-bottom: 2px solid #e8840a;
+    }
+
+    .logo-container {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: #f39c12;
+      transition: transform 0.3s ease;
+      cursor: pointer; /* Makes the logo clickable */
+    }
+
+    .logo:hover {
+      transform: scale(1.1);
+    }
+
+    .logo-indicator {
+      text-align: center;
+      margin-top: 5px;
+      animation: bounce 2s infinite;
+    }
+
+    .logo-indicator span {
+      display: block;
+      font-size: 1rem;
+      color: #f39c12;
+      font-weight: bold;
+    }
+
+    /* Arrow Animation */
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+      }
+      40% {
+        transform: translateY(-10px);
+      }
+      60% {
+        transform: translateY(-5px);
+      }
+    }
+
+    /* Navigation Styles */
+    nav {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-button {
+      background: linear-gradient(135deg, #ffaa3e, #ff5722);
+      border: none;
+      padding: 12px 20px;
+      font-size: 1rem;
+      color: #fff;
+      cursor: pointer;
+      border-radius: 30px;
+      transition: all 0.4s ease;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    .nav-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+      background: linear-gradient(135deg, #ff5722, #ffaa3e);
+    }
+
+    /* Mobile Menu */
+    .mobile-nav {
+      position: fixed;
+      top: 0;
+      left: -100%;
+      height: 100%;
+      width: 60%;
+      background: rgba(0, 0, 0, 0.8);
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      padding-top: 80px;
+      z-index: 999;
+      transition: left 0.3s ease;
+    }
+
+    .mobile-nav a {
+      color: #fff;
+      font-size: 1.5rem;
+      text-decoration: none;
+      padding: 15px 25px;
+      background: linear-gradient(135deg, #ffaa3e, #ff5722);
+      border-radius: 30px;
+      transition: background 0.3s ease;
+    }
+
+    .mobile-nav a:hover {
+      background: linear-gradient(135deg, #ff5722, #ffaa3e);
+    }
+
+    /* Dark Background Overlay */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      display: none;
+      z-index: 998;
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 100px 20px;
+      background: linear-gradient(135deg, #ffffff, #ffe4d4);
+      color: #333;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      color: #f07f07;
+      letter-spacing: 1px;
+    }
+
+    .hero p {
+      font-size: 1.5rem;
+      margin-top: 20px;
+      color: #555;
+    }
+
+    .hero .cta {
+      background: #ff7f50;
+      color: #fff;
+      border: none;
+      padding: 15px 35px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      border-radius: 30px;
+      margin-top: 30px;
+      transition: transform 0.3s ease, background 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .cta:hover {
+      background: #e25c36;
+      transform: scale(1.05);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 30px;
+      background: #2c3e50;
+      color: #ccc;
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      color: #f39c12;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    footer a:hover {
+      color: #f07f07;
+    }
+
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="logo-container">
+      <div class="logo" onclick="toggleMenu()">IPA</div>
+      <div class="logo-indicator">
+        <span>Click Here</span>
+        <span class="arrow"> ^ </span>
+      </div>
+    </div>
+    <!-- Mobile Navigation -->
+    <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
+    <div class="mobile-nav" id="mobile-nav">
+      <a href="about.html">About Us</a>
+      <a href="resources.html">Resources</a>
+      <a href="contact.html">Contact Us</a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Welcome to Immigrant Parent Ally</h1>
+    <p>Empowering families with knowledge, guidance, and support for a brighter future.</p>
+    <button class="cta" onclick="location.href='get-started.html'">Get Started</button>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2024 Immigrant Ally | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const mobileNav = document.getElementById('mobile-nav');
+      const overlay = document.getElementById('overlay');
+      if (mobileNav.style.left === "0px") {
+        mobileNav.style.left = "-100%";
+        overlay.style.display = "none";
+      } else {
+        mobileNav.style.left = "0";
+        overlay.style.display = "block";
+      }
+    }
+  </script>
+</body>
+</html>
